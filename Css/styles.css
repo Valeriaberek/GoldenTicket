@@ -1,0 +1,211 @@
+body {
+    background-image: url('/images/fond.jpg');
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    margin: 0;
+    flex-direction: column;
+}
+
+.elsie-swash-caps-black {
+    font-family: "Elsie Swash Caps", serif;
+    font-weight: 900;
+    font-size: 80px;
+    color: #462B21;
+}
+
+.message {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+
+.chocolate-button {
+    background: none !important; 
+    border: none; 
+    cursor: pointer; 
+    padding: 0; 
+    margin: 20px; 
+}
+
+.chocolate-button img {
+    width: 100px; 
+    height: auto; 
+    transition: transform 0.2s; 
+}
+
+.chocolate-button img:hover {
+    transform: scale(1.1);
+}
+
+.ticket-container {
+    perspective: 1200px;
+}
+
+.ticket {
+    width: 700px;
+    height: 300px;
+    background-image: url('/images/ticketdor.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), 0 10px 30px rgba(255, 215, 0, 0.2);
+    position: relative;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.ticket:hover {
+    transform: rotateY(180deg) scale(1.05);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+body {
+    animation: fadeIn 2s ease-in;
+}
+
+.ticket .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 215, 0, 0.9);
+    color: #462B21;
+    top: 0;
+    left: 0;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.6s;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.profile-section {
+    margin-bottom: 20px;
+}
+
+.profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid #FFD700;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+}
+
+.profile-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.description p {
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.congratulations {
+    font-size: 10px;
+    font-weight: bold;
+    color: #FFD700;
+}
+
+.call-to-action {
+    font-size: 10px;
+    font-weight: bold;
+    color: #462B21;
+    margin-bottom: 40px;
+    text-decoration: underline;
+}
+
+.ticket:hover .back {
+    opacity: 1;
+}
+
+.signature {
+    position: absolute;
+    width: 20%;
+    height: 30%;
+    color: white;
+    bottom: 20px; 
+    left: 70%; 
+}
+
+#videoModal {
+    display: none; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0,0,0,0.8); 
+    justify-content: center; 
+    align-items: center;
+}
+
+.modal-content {
+    position: relative; 
+    width: 80%; 
+    max-width: 800px;
+}
+
+.modal-content iframe {
+    width: 100%; 
+    height: 450px;
+}
+
+.mute-button {
+    position: absolute; 
+    top: 5px; 
+    right: 250px; 
+    background: white; 
+    color: white; 
+    border: none; 
+    padding: 10px; 
+    cursor: pointer;
+}
+
+.close-button {
+     position: absolute; 
+    top: 5px; 
+    right: 250px; 
+    background: black; 
+    color: white; 
+    border: none; 
+    padding: 10px; 
+    cursor: pointer; 
+}
+
+.social-icons {
+    position: fixed; 
+    bottom: 20px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    display: flex;
+    gap: 20px; 
+    z-index: 1000; 
+}
+
+.social-icons a {
+    font-size: 30px; 
+    color: #462B21; 
+    transition: color 0.3s ease; 
+}
+
+.social-icons a:hover {
+    color: #FFD700; 
+}
