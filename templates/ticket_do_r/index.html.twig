@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Elsie+Swash+Caps:wght@400;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <title>Ticket d'Or</title>
+    
+</head>
+<body>
+
+    <audio id="backgroundMusic" src="/audio/musique_féerique.mp3" preload="auto" loop></audio>
+
+
+    <button class="mute-button" id="muteButton" onclick="toggleMute()">
+        <img src="/images/chocolat.png" alt="Bouton Chocolat" style="width: 60px; height: auto;"> 
+    </button>
+
+    <span class="elsie-swash-caps-black">Félicitations, {{ name }} ! </span> 
+    
+    <div class="message" id="companyMessage">Vous avez trouvé votre future alternante en développement web !</div>
+
+    <div class="ticket-container">
+        <div class="ticket" onclick="openVideo();">
+            <div class="back">
+                <div class="profile-section">
+                    <img src="/images/valeriaBerek.png" alt="Valeria BEREK" class="profile-image">
+                    <div class="profile-name">Valéria BEREK</div>
+                </div>
+                <div class="description">
+                    Vous avez trouvé le Ticket d'Or ! 
+                    <p>
+                        Et avec lui, l'opportunité de découvrir une développeuse web passionnée et débordante de créativité.
+                        Je m'appelle Valéria, et je vous invite à embarquer dans une aventure unique à travers le monde du code. 
+                        Ce ticket doré vous ouvre la porte à une expérience exclusive : une vidéo spécialement conçue pour vous, où je dévoile mes compétences et comment je peux apporter une touche de magie à votre équipe.
+                    </p>
+                    <p class="call-to-action">CLIQUEZ !</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <img src="/images/signature.png" alt="Valeria BEREK" class="signature"> 
+    <div id="videoModal">
+        <div class="modal-content">
+            <iframe id="videoFrame" src="" frameborder="0" allowfullscreen></iframe>
+            <button class="close-button" onclick="closeVideo()">Fermer</button>
+        </div>
+    </div>
+
+    <div class="social-icons">
+        <a href="https://www.linkedin.com/in/valeria-berek-539816257" target="_blank">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/valeriaberek" target="_blank">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="https://valeriaberek.com" target="_blank">
+            <i class="fas fa-globe"></i>
+        </a>
+    </div>
+
+   <script>
+    window.onload = function() {
+        var audio = document.getElementById('backgroundMusic');
+        audio.play(); 
+
+        var videoURL = "{{ videoUrl }}"; 
+        document.getElementById('videoFrame').src = videoURL; 
+
+        var companyName = "{{ name }}"; 
+        document.getElementById('companyMessage').innerText = `Vous avez trouvé votre future alternante en développement web !`;
+    };
+
+    function playMusic() {
+        var audio = document.getElementById('backgroundMusic');
+        audio.play();
+    }
+
+    function openVideo() {
+        document.getElementById('videoModal').style.display = "flex";
+        document.getElementById('backgroundMusic').pause(); 
+    }
+
+    function closeVideo() {
+        document.getElementById('videoModal').style.display = "none";
+        document.getElementById('videoFrame').src = ""; 
+        document.getElementById('backgroundMusic').play(); 
+    }
+
+    function toggleMute() {
+        var audio = document.getElementById('backgroundMusic');
+        var button = document.getElementById('muteButton');
+        if (audio.muted) {
+            audio.muted = false;
+            button.innerHTML = '<img src="/images/chocolat.png" alt="Bouton Chocolat" style="width: 60px; height: auto;">'; 
+        } else {
+            audio.muted = true;
+            button.innerHTML = '<img src="/images/chocolat.png" alt="Bouton Chocolat Muet" style="width: 60px; height: auto;">'; 
+        }
+    }
+</script>
+
+</body>
+</html>

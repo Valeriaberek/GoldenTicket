@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Ma page{% endblock %}</title>
+
+
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+</head>
+<body>
+    <div class="content">
+        {% block body %}
+      
+        {% endblock %}
+    </div>
+
+ 
+    <script>
+ 
+        gsap.to(".content", { duration: 2, x: 100 });
+    </script>
+
+
+    {% block javascripts %}{% endblock %}
+</body>
+</html>
